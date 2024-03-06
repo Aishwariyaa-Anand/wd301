@@ -1,9 +1,9 @@
-const TaskCard = () => {
+const TaskCard = (props) => {
     return (
         <div>
-            <h2>title</h2>
-            <p>completed on</p>
-            <p>assignee</p>
+            <h2>{props.title}</h2>
+            <p>Completed on: {props.comp}</p>
+            <p>Assignee: {props.name}</p>
         </div>
     )
 }
