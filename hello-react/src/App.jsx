@@ -11,13 +11,33 @@ function App() {
       <div className="App">
         <div className="TaskBox pending">
           <h1 className="text-xl font-bold">Pending</h1>
-          <TaskCard title="abcd" comp="Due on: 10th april" name="rahul"/>
-          <TaskCard title="xyz" comp="Due on: 11th april" name="abhi"/>
+          <TaskCard 
+            title="abcd" 
+            dueDate="10th april" 
+            assigneeName="rahul" 
+            isPending={true}
+          />
+          <TaskCard 
+            title="xyz" 
+            dueDate="11th april" 
+            assigneeName="abhi" 
+            isPending={true}
+          />
         </div>
         <div className="TaskBox done">
           <h1 className="text-xl font-bold">Done</h1>
-          <TaskCard title="qwer" comp="Completed on: 23rd march" name="ram"/>
-          <TaskCard title="tyui" comp="Completed on: 20th march" name="sita"/>
+          <TaskCard 
+            title="qwer" 
+            completedAtDate="23rd march" 
+            assigneeName="ram" 
+            isPending={false}
+          />
+          <TaskCard 
+            title="tyui" 
+            completedAtDate="20th march" 
+            assigneeName="sita" 
+            isPending={false}
+          />
         </div>
       </div>
     </div>
