@@ -40,3 +40,25 @@
 .read-the-docs {
   color: #888;
 }
+
+.TaskBox {
+  flex: 1; /* Take up equal space within the container */
+  border: 1px solid #DFDFDF;
+  border-radius: 4px;
+  padding: 6px 8px;
+  margin-bottom: 6px;
+}
+
+.App {
+  display: flex;
+  flex-direction: row; /* Arrange sections side by side */
+}
+
+.pending {
+  margin-right: 12px; /* Add margin between sections */
+}
+
+/* Styling for the "Done" section */
+.done {
+  margin-left: 12px; /* Add margin between sections */
+}
