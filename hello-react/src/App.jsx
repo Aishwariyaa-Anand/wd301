@@ -1,15 +1,14 @@
 import TaskCard from "./TaskCard";
-import "./App.css"
 
 function App() {
   return (
-    <div>
+    <div className="max-w-4xl mx-auto px-8">
       <h1 className="text-xl font-bold text-left">Smarter Tasks</h1>
       <br />
       <p className="text-left"> <b>Project:</b> Graduation Final Year Project</p>
       <br />
       <div className="flex flex-row">
-        <div className="TaskBox mr-12">
+        <div className="flex-1 border border-gray-300 rounded-lg p-2 mb-2 mr-12">
           <h1 className="text-xl font-bold">Pending</h1>
           <TaskCard 
             title={"Build the website with static content"}
@@ -25,7 +24,7 @@ function App() {
           />
           <p className="bg-gray-100 text-left">+ New Task</p>
         </div>
-        <div className="TaskBox ml-12">
+        <div className="flex-1 border border-gray-300 rounded-lg p-2 mb-2 ml-12">
           <h1 className="text-xl font-bold">Done</h1>
           <TaskCard 
             title={"Design the mockup"}
