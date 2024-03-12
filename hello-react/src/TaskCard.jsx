@@ -1,7 +1,7 @@
 import './TaskCard.css'
 
 const TaskCard = (props) => {
-    
+    //const { title, dueDate, completedAtDate, assigneeName, isPending } = props;
 
     return (
         <div className="TaskItem">
