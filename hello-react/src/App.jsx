@@ -8,8 +8,8 @@ function App() {
       <br />
       <p className="text-left"> <b>Project:</b> Graduation Final Year Project</p>
       <br />
-      <div className="App">
-        <div className="TaskBox pending">
+      <div className="flex flex-row">
+        <div className="TaskBox mr-12">
           <h1 className="text-xl font-bold">Pending</h1>
           <TaskCard 
             title={"Build the website with static content"}
@@ -25,7 +25,7 @@ function App() {
           />
           <p className="bg-gray-100 text-left">+ New Task</p>
         </div>
-        <div className="TaskBox done">
+        <div className="TaskBox ml-12">
           <h1 className="text-xl font-bold">Done</h1>
           <TaskCard 
             title={"Design the mockup"}
