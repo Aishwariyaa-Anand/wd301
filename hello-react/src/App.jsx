@@ -23,6 +23,7 @@ function App() {
             assigneeName="Rohit M" 
             isPending={true}
           />
+          <p className="bg-gray-100 text-left">+ New Task</p>
         </div>
         <div className="TaskBox done">
           <h1 className="text-xl font-bold">Done</h1>
