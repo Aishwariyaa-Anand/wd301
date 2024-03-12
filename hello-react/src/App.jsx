@@ -12,30 +12,30 @@ function App() {
         <div className="TaskBox pending">
           <h1 className="text-xl font-bold">Pending</h1>
           <TaskCard 
-            title="abcd" 
+            title="Build the website with static content" 
             dueDate="10th april" 
-            assigneeName="rahul" 
+            assigneeName="Rohit S" 
             isPending={true}
           />
           <TaskCard 
-            title="xyz" 
-            dueDate="11th april" 
-            assigneeName="abhi" 
+            title="Add a blog" 
+            dueDate="22nd March" 
+            assigneeName="Rohit M" 
             isPending={true}
           />
         </div>
         <div className="TaskBox done">
           <h1 className="text-xl font-bold">Done</h1>
           <TaskCard 
-            title="qwer" 
-            completedAtDate="23rd march" 
-            assigneeName="ram" 
+            title="Design the mockup" 
+            completedAtDate="10th April" 
+            assigneeName="Rohit M" 
             isPending={false}
           />
           <TaskCard 
-            title="tyui" 
-            completedAtDate="20th march" 
-            assigneeName="sita" 
+            title="Get the approval from principal" 
+            completedAtDate="20th April" 
+            assigneeName="Ajay S" 
             isPending={false}
           />
         </div>
