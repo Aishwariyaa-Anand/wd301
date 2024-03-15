@@ -8,3 +8,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     <App />
   </React.StrictMode>,
 )
+
+/*function throwError(): never {
+  throw new Error("An error occurred!");
+}*/
