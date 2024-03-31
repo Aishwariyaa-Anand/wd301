@@ -1,6 +1,6 @@
 import React from "react";
 import { TaskItem } from "./types";
-import TaskForm from "./TaskForm";
+import TaskForm from "./TaskFormFC";
 import TaskList from "./TaskList";
 
 interface TaskAppProp {}
@@ -25,11 +25,11 @@ class TaskApp extends React.Component<TaskAppProp, TaskAppState> {
 
   render() {
     return (
-        <div className="container py-10 max-w-4xl mx-auto">
-            <h1 className="text-3xl mb-2 font-bold text-slate-700">
+        <div className="">
+            <h1 className="text-xl mb-2 font-bold text-slate-700">
             Smarter Tasks
             </h1>
-            <h1 className="text-lg mb-6 text-slate-600">
+            <h1 className="text-sm mb-6 text-slate-600">
             <span className="font-bold">Project: </span>
             Graduation Final Year Project (Revamp college website)
             </h1>

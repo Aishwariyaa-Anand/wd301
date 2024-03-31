@@ -1,5 +1,5 @@
 import React from "react";
-import Task from "./Task";
+import Task from "./TaskFC";
 import { TaskItem } from "./types";
 
 interface Props {
