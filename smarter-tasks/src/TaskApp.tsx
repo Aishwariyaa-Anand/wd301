@@ -1,10 +1,10 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { TaskItem } from "./types";
 import TaskForm from "./TaskFormFC";
 import TaskList from "./TaskListFC";
 import { useLocalStorage } from "./hooks/useLocalStorage";
 
-interface TaskAppProp {}
+//interface TaskAppProp {}
 interface TaskAppState {
   tasks: TaskItem[];
 }

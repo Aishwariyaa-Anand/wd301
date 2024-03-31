@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+//mport { useState } from "react";
 import Task from "./TaskFC";
+import { useLocalStorage } from "./hooks/useLocalStorage";
 import { TaskItem } from "./types";
 
 interface Props {
@@ -27,7 +28,11 @@ interface Props {
 }*/
 
 const TaskListFC = (props: Props) => {
-  const [task, setTask] = useState<TaskItem[]>(props.tasks);
+  const [task, setTask] = useLocalStorage<Props>(
+    "tasks", {
+      tasks: [],
+    }
+  );
 
   const handleDeleteTask = (idx: number) => {
     // Remove the task at the specified index from the tasks array

@@ -81,9 +81,9 @@ const TaskFormFC = (props: TaskFormProps) => {
     description:"",
     dueDate:"",
   });
-  const [title, setTitle] = React.useState("");
-  const [description, setDescription] = React.useState("");
-  const [dueDate, setDueDate] = React.useState("");
+  // const [title, setTitle] = React.useState("");
+  // const [description, setDescription] = React.useState("");
+  // const [dueDate, setDueDate] = React.useState("");
 
   const titleChanged: React.ChangeEventHandler<HTMLInputElement> = (event) => {
     console.log(`${event.target.value}`);
