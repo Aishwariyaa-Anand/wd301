@@ -25,7 +25,7 @@ interface TaskProp {
     }
 }*/
 
-const TaskFC = (props: TaskProp) => {
+const Task = (props: TaskProp) => {
   const deletetask = () => {
     props.deletetask(props.idx);
   }
@@ -45,4 +45,4 @@ const TaskFC = (props: TaskProp) => {
   );
 };
 
-export default TaskFC;
+export default Task;

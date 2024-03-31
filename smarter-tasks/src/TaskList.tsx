@@ -1,5 +1,5 @@
 //mport { useState } from "react";
-import Task from "./TaskFC";
+import Task from "./Task";
 import { useLocalStorage } from "./hooks/useLocalStorage";
 import { TaskItem } from "./types";
 
@@ -27,7 +27,7 @@ interface Props {
   }
 }*/
 
-const TaskListFC = (props: Props) => {
+const TaskList = (props: Props) => {
   const [task, setTask] = useLocalStorage<Props>(
     "tasks", {
       tasks: [],
@@ -59,7 +59,7 @@ const TaskListFC = (props: Props) => {
   ) 
 };
 
-export default TaskListFC;
+export default TaskList;
 
 /*import React from "react";
 import Task from "./Task";

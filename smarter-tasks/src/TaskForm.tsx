@@ -75,7 +75,7 @@ interface TaskFormState {
 }*/
 
 
-const TaskFormFC = (props: TaskFormProps) => {
+const TaskForm = (props: TaskFormProps) => {
   const [formState, setFormState] = React.useState<TaskFormState>({
     title:"",
     description:"",
@@ -186,4 +186,4 @@ const TaskFormFC = (props: TaskFormProps) => {
 }
 
 
-export default TaskFormFC;
+export default TaskForm;
