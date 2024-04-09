@@ -49,7 +49,7 @@ const router = createBrowserRouter([
   },
   { 
     path: "*", 
-    element: <Notfound /> 
+    element: <Navigate to="/notfound" replace />,
   },
 ]);
 
