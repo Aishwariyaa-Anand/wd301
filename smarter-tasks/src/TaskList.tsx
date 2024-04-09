@@ -1,6 +1,5 @@
 
 import Task from "./Task";
-import { Link } from 'react-router-dom';
 import { useLocalStorage } from "./hooks/useLocalStorage";
 import { TaskItem } from "./types";
 
