@@ -1,34 +1,47 @@
 import './App.css'
 import {
   createBrowserRouter,
+  Navigate,
   RouterProvider,
 } from "react-router-dom";
 import HomePage from './pages/HomePage';
 import TaskListPage from './pages/TaskListPage';
 import TaskDetailsPage from "./pages/TaskDetailsPage";
 import Layout from "./Layout";
-import TaskApp from "./TaskApp";
+import Signin from "./pages/Signin";
+import ProtectedRoute from "./ProtectedRoute";
+// import TaskApp from "./TaskApp";
 
 const router = createBrowserRouter([
   {
+    path: "/",
+    element: <Navigate to="/signin" replace />,
+  },
+  {
+    path: "/signin",
+    element: <Signin />,
+  },
+  {
     element: (
-      <Layout />
+      <ProtectedRoute>
+        <Layout />
+      </ProtectedRoute>
     ),
     children: [
       {
-        path: "/",
-        element: (<HomePage />)
+        path: "home",
+        element: <HomePage />,
       },
       {
         path: "tasks",
-        element: (<TaskListPage />)
+        element: <TaskListPage />,
       },
       {
         path: "tasks/:id",
-        element: (<TaskDetailsPage />)
+        element: <TaskDetailsPage />,
       },
-    ]
-  }
+    ],
+  },
 ]);
 
 const App = () => {
