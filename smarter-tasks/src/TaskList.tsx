@@ -26,10 +26,8 @@ const TaskList = (props: Props) => {
       {props.tasks.map((task, idx) => (
         <li key={idx}>
         <Task
-          title={task.title}
-          description={task.description}
-          dueDate={task.dueDate}
-          deletetask={() => handleDeleteTask(idx)}
+          item={task}
+          removeTask={() => handleDeleteTask(idx)}
         />
         </li>
       ))}
