@@ -1,31 +1,11 @@
-//mport { useState } from "react";
+
 import Task from "./Task";
 import { useLocalStorage } from "./hooks/useLocalStorage";
 import { TaskItem } from "./types";
 
 interface Props {
   tasks: TaskItem[];
-  //onDeleteTask: (index: number) => void;
 }
-
-//interface State {}
-/*class TaskList extends React.Component<Props, State> {
-  
-  render() {
-    return (
-        <div>
-          {this.props.tasks.map((task, idx) => (
-            <Task
-              key={idx}
-              title={task.title}
-              description={task.description}
-              dueDate={task.dueDate}
-            />
-          ))}
-        </div>
-      );
-  }
-}*/
 
 const TaskList = (props: Props) => {
   const [task, setTask] = useLocalStorage<Props>(
@@ -35,7 +15,6 @@ const TaskList = (props: Props) => {
   );
 
   const handleDeleteTask = (idx: number) => {
-    // Remove the task at the specified index from the tasks array
     console.log(task);
     props.tasks.splice(idx, 1);
     setTask({tasks: props.tasks});
@@ -60,37 +39,3 @@ const TaskList = (props: Props) => {
 };
 
 export default TaskList;
-
-/*import React from "react";
-import Task from "./Task";
-
-interface Props {
-}
-
-interface TaskItem {
-  title: string
-}
-
-interface State {
-  tasks: TaskItem[];
-}
-
-class TaskList extends React.Component {
-    constructor(props: Props) {
-        super(props);
-        this.state = {
-          tasks: []
-        }
-    }
-    componentDidMount() {
-        const tasks = [{ title: "Pay rent" }, { title: "Submit assignment" }];
-        this.setState((state, props) => ({
-        tasks,
-        }));
-    }
-    render() {
-        return this.state.tasks.map((task, idx) => <Task key={idx} title={task.title} />);
-    }
-}
-
-export default TaskList;*/
