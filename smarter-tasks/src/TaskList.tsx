@@ -1,5 +1,6 @@
 
 import Task from "./Task";
+import { Link } from 'react-router-dom';
 import { useLocalStorage } from "./hooks/useLocalStorage";
 import { TaskItem } from "./types";
 
@@ -25,10 +26,10 @@ const TaskList = (props: Props) => {
     <ul>
       {props.tasks.map((task, idx) => (
         <li key={idx}>
-        <Task
-          item={task}
-          removeTask={() => handleDeleteTask(idx)}
-        />
+          <Task
+            item={task}
+            removeTask={() => handleDeleteTask(idx)}
+          />
         </li>
       ))}
     </ul>

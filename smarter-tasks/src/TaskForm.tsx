@@ -12,6 +12,7 @@ interface TaskFormState {
     dueDate: string;
 }
 
+let taskIdCounter = 1;
 
 const TaskForm = (props: TaskFormProps) => {
   const [formState, setFormState] = React.useState<TaskFormState>({
@@ -45,7 +46,7 @@ const TaskForm = (props: TaskFormProps) => {
       return;
     }
     const newTask: TaskItem = {
-      id: "",
+      id: String(taskIdCounter++),
       title: formState.title,
       description: formState.description,
       dueDate: formState.dueDate,
