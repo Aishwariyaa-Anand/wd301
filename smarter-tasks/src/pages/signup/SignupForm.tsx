@@ -1,5 +1,6 @@
 // src/pages/signup/SignupForm.tsx
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { API_ENDPOINT } from '../../config/constants';
 
 const SignupForm: React.FC = () => {
@@ -7,6 +8,7 @@ const SignupForm: React.FC = () => {
   const [userName, setUserName] = useState('');
   const [userEmail, setUserEmail] = useState('');
   const [userPassword, setUserPassword] = useState('');
+  const navigate = useNavigate();
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -26,7 +28,8 @@ const SignupForm: React.FC = () => {
 
       // if successful, save the token in localStorage
       localStorage.setItem('authToken', data.token);
-      localStorage.setItem('userData', JSON.stringify(data.user))
+      localStorage.setItem('userData', JSON.stringify(data.user));
+      navigate('/dashboard');
       // Dialogue: After successful signup we have to redirect the user to the secured page. We will do that later.
     } catch (error) {
       console.error('Sign-up failed:', error);

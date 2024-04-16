@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { API_ENDPOINT } from '../../config/constants';
 
 const SigninForm: React.FC = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const navigate = useNavigate();
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -26,6 +28,8 @@ const SigninForm: React.FC = () => {
       // After successful signin, first we will save the token in localStorage
       localStorage.setItem('authToken', data.token);
       localStorage.setItem('userData', JSON.stringify(data.user));
+      console.log(data.token);
+      navigate('/dashboard');
 
     } catch (error) {
       console.error('Sign-in failed:', error);
