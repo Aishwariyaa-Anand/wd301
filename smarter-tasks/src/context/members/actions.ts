@@ -47,7 +47,6 @@ export const deleteMember = async (dispatch: any, id: number) => {
   const token = localStorage.getItem("authToken") || "";
   
   try {
-    dispatch({ type: "DELETE_MEMBER_REQUEST" });
     const response = await fetch(`${API_ENDPOINT}/users/${id}`, {
       method: "DELETE",
       headers: { "Content-Type": "application/json", "Authorization": `Bearer ${token}` },

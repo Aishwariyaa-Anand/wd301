@@ -11,7 +11,6 @@ export default function MemberListItems() {
   const dispatchMembers = useMembersDispatch()
   const handleDeleteMember = async (id: number) => {
     try {
-      // Call deleteMember function to delete the member with the given id
       const response = await deleteMember(dispatchMembers, id);
       if (response.ok) {
         console.log('Member deleted successfully');
