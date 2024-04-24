@@ -1,6 +1,11 @@
+import ProjectList from "./ProjectList";
+
 const Projects = () => {
     return (
-      <h2>Projects</h2>
+      <>
+        <h2>Projects</h2>
+        <ProjectList />
+      </>
     )
 }
 
