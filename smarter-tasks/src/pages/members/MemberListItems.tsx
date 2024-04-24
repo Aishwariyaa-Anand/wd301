@@ -9,15 +9,8 @@ export default function MemberListItems() {
   const { members, isLoading, isError, errorMessage } = state;
 
   const dispatchMembers = useMembersDispatch()
-  const handleDeleteMember = async (id: number) => {
-    try {
-      const response = await deleteMember(dispatchMembers, id);
-      if (response.ok) {
-        console.log('Member deleted successfully');
-      }
-    } catch (error) {
-      console.error('An error occurred while deleting member:', error);
-    }
+  const handleDeleteMember = (id: number) => {
+    deleteMember(dispatchMembers, id);
   };
 
   if (isLoading) {
