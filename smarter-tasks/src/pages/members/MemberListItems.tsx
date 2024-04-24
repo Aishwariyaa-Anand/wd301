@@ -4,7 +4,9 @@ import { useMembersDispatch } from '../../context/members/context';
 import { deleteMember } from "../../context/members/actions";
 
 export default function MemberListItems() {
-  const { members, isLoading, isError, errorMessage } = useMembersState();
+  let state: any = useMembersState();
+
+  const { members, isLoading, isError, errorMessage } = state;
 
   const dispatchMembers = useMembersDispatch()
   const handleDeleteMember = async (id: number) => {

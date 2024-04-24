@@ -5,9 +5,6 @@
 import { useProjectsState } from "../../context/projects/context";
 export default function ProjectListItems() {
 
-  // I'll define a new constant called `state`, to call the useProjectsState() hook, 
-  // and get access to projects state.
-  // eslint-disable-next-line prefer-const
   let state: any = useProjectsState();
 
   // Next, I'll destructure the state object to gain access to projects, 
