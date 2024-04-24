@@ -11,15 +11,6 @@ export interface ProjectsState {
     isError: boolean;
     errorMessage: string;
 }
-// Next, I'll comment the `Action` interface
-
-// interface Action {
-//   type: string;
-//   payload?: any;
-// }
-
-// Then I'll define a new type called `ProjectsActions` 
-// for all possible combimations of action objects.
 export type ProjectsActions = 
     | { type: 'FETCH_PROJECTS_REQUEST' }
     | { type: 'FETCH_PROJECTS_SUCCESS'; payload: Project[] }
