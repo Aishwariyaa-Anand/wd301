@@ -18,7 +18,7 @@ const Appbar = () => {
     { name: 'Projects', href: '/account/projects', current: false },
     { name: 'Members', href: '/account/members', current: false },
   ]
-
+  
   return (
     <>
       <Disclosure as="nav" className="border-b border-slate-200">
