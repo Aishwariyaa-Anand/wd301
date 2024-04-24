@@ -1,4 +1,5 @@
-import React from "react";
+/* eslint-disable @typescript-eslint/no-explicit-any */
+//import React from "react";
 
 // First, I'll import the useProjectsState custom hook to access projects state.
 import { useProjectsState } from "../../context/projects/context";
@@ -6,6 +7,7 @@ export default function ProjectListItems() {
 
   // I'll define a new constant called `state`, to call the useProjectsState() hook, 
   // and get access to projects state.
+  // eslint-disable-next-line prefer-const
   let state: any = useProjectsState();
 
   // Next, I'll destructure the state object to gain access to projects, 
