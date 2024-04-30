@@ -7,6 +7,9 @@ import Signup from "../pages/signup"
 import Projects from "../pages/projects"
 import Members from "../pages/members"
 import Logout from "../pages/logout";
+import ProjectContainer from "../pages/projects/ProjectContainer";
+import ProjectDetails from "../pages/project_details";
+import NewTask from "../pages/tasks/NewTask";
 
 const router = createBrowserRouter([
   { path: "/", element: <Navigate to="/account/projects" replace /> },
@@ -34,7 +37,32 @@ const router = createBrowserRouter([
         { index: true, element: <Navigate to="/account/projects" replace /> },
         {
           path: "projects",
-          element: (<Projects />)
+          element: <ProjectContainer />,
+          children: [
+            { index: true, element: <Projects /> },
+            {
+              path: ":projectID",
+              element: <ProjectDetails />,
+              children: [
+                { index: true, element: <></> },
+                {
+                  path: "tasks",
+                  children: [
+                    { index: true, element: <Navigate to="../" /> },
+                    {
+                      path: "new",
+                      // Render `NewTask` component
+                      element: <NewTask />,
+                    },
+                    {
+                      path: ":taskID",
+                      children: [{ index: true, element: <>Show Task Details</> }],
+                    },
+                  ],
+                },
+              ],
+            },
+          ],
         },
         {
           path: "members",
