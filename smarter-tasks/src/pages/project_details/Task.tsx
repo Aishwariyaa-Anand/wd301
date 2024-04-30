@@ -1,4 +1,7 @@
-import React, { forwardRef } from "react";
+import React, { forwardRef, useContext } from "react";
+import { useParams } from "react-router-dom";
+import { useTasksDispatch } from "../../context/task/context";
+import { deleteTask } from "../../context/task/actions";
 import { Draggable } from "react-beautiful-dnd";
 import { TaskDetails } from "../../context/task/types";
 import "./TaskCard.css";
@@ -8,6 +11,8 @@ const Task = forwardRef<
   HTMLDivElement,
   React.PropsWithChildren<{ task: TaskDetails }>
 >((props, ref) => {
+  const taskDispatch = useTasksDispatch();
+  const { projectID } = useParams();
   const { task } = props;
   return (
     <div ref={ref} {...props} className="m-2 flex">
@@ -27,7 +32,10 @@ const Task = forwardRef<
           </div>
           <button
             className="deleteTaskButton cursor-pointer h-4 w-4 rounded-full my-5 mr-5"
-            onClick={(event) => {}}
+            onClick={(event) => {
+              event.preventDefault();
+              deleteTask(taskDispatch, projectID ?? "", task);
+            }}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
