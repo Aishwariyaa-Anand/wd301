@@ -32,4 +32,4 @@ export const taskReducer: Reducer<TaskListState, TaskActions> = (
       default:
         return state;
     }
-  };
+  }; 
