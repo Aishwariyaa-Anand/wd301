@@ -1,7 +1,7 @@
 /* eslint-disable prefer-const */
 /* eslint-disable react-hooks/rules-of-hooks */
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { API_ENDPOINT } from "../../config/constants";
+import { VITE_API_ENDPOINT } from "../../config/constants";
 import { CommentsDispatch, CommentListAvailableAction } from "./types";
 import { CommentPayload } from "./types";
 
@@ -14,7 +14,7 @@ export const addComment = async (
   const token = localStorage.getItem("authToken") ?? "";
   try {
     let response = await fetch(
-      `${API_ENDPOINT}/projects/${projectID}/tasks/${taskID}/comments`,
+      `${VITE_API_ENDPOINT}/projects/${projectID}/tasks/${taskID}/comments`,
       {
         method: "POST",
         headers: {
@@ -59,7 +59,7 @@ export const fetchComment = async (
     dispatch({ type: CommentListAvailableAction.FETCH_COMMENTS_REQUEST });
 
     let response = await fetch(
-      `${API_ENDPOINT}/projects/${projectID}/tasks/${taskID}/comments`,
+      `${VITE_API_ENDPOINT}/projects/${projectID}/tasks/${taskID}/comments`,
       {
         method: "GET",
         headers: {
