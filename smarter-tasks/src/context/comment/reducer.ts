@@ -1,12 +1,7 @@
-import { Reducer } from "react";
-import { CommentListState, CommentActions, CommentListAvailableAction } from "./types";
 
-export const initialCommentState: CommentListState = {
-  comments: [],
-  isLoading: false,
-  isError: false,
-  errorMessage: "",
-};
+
+import { Reducer } from "react";
+import { CommentListState, CommentActions, CommentListAvailableAction, initialCommentState } from "./types";
 
 export const commentReducer: Reducer<CommentListState, CommentActions> = (
   state = initialCommentState,
