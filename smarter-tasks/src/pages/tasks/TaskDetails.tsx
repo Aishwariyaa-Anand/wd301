@@ -8,6 +8,8 @@ import { useProjectsState } from "../../context/projects/context";
 import { TaskDetailsPayload } from "../../context/task/types";
 import CheckIcon from "@heroicons/react/24/outline/CheckIcon";
 import { useMembersState } from "../../context/members/context";
+import { useCommentsState, useCommentsDispatch } from "../../context/comment/context";
+import { fetchComment, addComment} from "../../context/comment/actions";
 
 type TaskFormUpdatePayload = TaskDetailsPayload & {
     selectedPerson: string;
@@ -26,7 +28,8 @@ const formatDateForPicker = (isoDate: string) => {
 
 const TaskDetails = () => {
   let [isOpen, setIsOpen] = useState(true);
-
+  
+  let [inComment, setInComment] = useState("");
   let { projectID, taskID } = useParams();
   let navigate = useNavigate();
 
@@ -58,6 +61,23 @@ const TaskDetails = () => {
     },
   });
 
+  const dispatch = useCommentsDispatch();
+  const commentsState = useCommentsState();
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        if (projectID && taskID) {
+          await fetchComment(dispatch, projectID, taskID);
+        }
+      } catch (error) {
+        console.error("Error fetching comments:", error);
+      }
+    };
+
+    fetchData();
+  }, [projectID, taskID]);
+
+
   if (!selectedProject) {
     return <>No such Project!</>;
   }
@@ -77,6 +97,17 @@ const TaskDetails = () => {
       assignee: assignee?.id,
     });
     closeModal();
+  };
+
+  const onSubmitComment: SubmitHandler<Inputs> = async () => {
+    try {
+      await addComment(dispatch, projectID ?? "", taskID ?? "", {
+        description: inComment,
+      });
+      setInComment("");
+    } catch (error) {
+      console.error("Failed to add the comment:", error);
+    }
   };
 
   return (
@@ -205,6 +236,57 @@ const TaskDetails = () => {
                         Cancel
                       </button>
                     </form>
+                    <form onSubmit={handleSubmit(onSubmitComment)} className="mt-5">
+                        <h3 className="mb-3 text-xl font-semibold text-center">Comment Details</h3>
+                        <input
+                            type="text"
+                            placeholder="Write comment here"
+                            id="commentBox"
+                            required
+                            onChange={(e) => setInComment(e.target.value)}
+                            value={inComment}
+                            className="w-full px-3 py-2 my-4 text-gray-700 border rounded-md focus:outline-none focus:border-blue-500 focus:shadow-outline-blue"
+                        />
+                        <button
+                            type="submit"
+                            id="addCommentBtn"
+                            className="inline-flex justify-center px-4 py-2 mr-2 text-sm font-medium text-white bg-purple-600 border border-transparent rounded-md hover:bg-blue-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
+                        >
+                            Add comment
+                        </button>
+                    </form>
+
+                    <div className="comment mt-2 space-y-4">
+                        {commentsState.isLoading ? (
+                            <p>Loading comments...</p>
+                        ) : commentsState.isError ? (
+                            <p>Error: {commentsState.errorMessage}</p>
+                        ) : (
+                            <div className="space-y-4">
+                            {commentsState.comments.map((comment) => (
+                                <div key={comment.id} className="p-3 bg-gray-100 rounded-lg shadow-md comment">
+                                <div className="text-gray-600">
+                                    {comment.User && (
+                                    <>
+                                        <p className="m-2">
+                                        <strong>Name:</strong> {comment.User.name}
+                                        </p>
+                                        <p className="m-2">
+                                        <strong>Timestamp:</strong>{" "}
+                                        {comment.createdAt && comment.createdAt.toLocaleString()}
+                                        </p>
+                                        <p className="m-2">
+                                        <strong>Comment:</strong> {comment.description}
+                                        </p>
+                                    </>
+                                    )}
+                                </div>
+                                </div>
+                            ))}
+                            </div>
+                        )}
+                    </div>
+
                   </div>
                 </Dialog.Panel>
               </Transition.Child>
