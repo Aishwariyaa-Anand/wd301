@@ -1,4 +1,5 @@
-import React, { Fragment, useState, useEffect } from "react";
+/* eslint-disable @typescript-eslint/no-unused-vars */
+import { Fragment, useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { useTasksDispatch, useTasksState } from "../../context/task/context";
@@ -10,6 +11,7 @@ import CheckIcon from "@heroicons/react/24/outline/CheckIcon";
 import { useMembersState } from "../../context/members/context";
 import { useCommentsState, useCommentsDispatch } from "../../context/comment/context";
 import { fetchComment, addComment} from "../../context/comment/actions";
+import { CommentPayload } from "../../context/comment/types";
 
 type TaskFormUpdatePayload = TaskDetailsPayload & {
     selectedPerson: string;
@@ -99,7 +101,7 @@ const TaskDetails = () => {
     closeModal();
   };
 
-  const onSubmitComment: SubmitHandler<Inputs> = async () => {
+  const onSubmitComment: SubmitHandler<CommentPayload> = async () => {
     try {
       await addComment(dispatch, projectID ?? "", taskID ?? "", {
         description: inComment,
