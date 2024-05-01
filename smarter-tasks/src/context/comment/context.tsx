@@ -7,7 +7,7 @@ const CommentDispatchContext = createContext<Dispatch<CommentActions> | undefine
   undefined
 );
 
-export const CommentProvider: React.FC = ({ children }) => {
+export const CommentProvider: React.FC<React.PropsWithChildren> = ({ children }) => {
   const [state, dispatch] = useReducer(commentReducer, {
     comments: [],
     isLoading: false,
