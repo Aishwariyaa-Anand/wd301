@@ -1,7 +1,7 @@
 // src/pages/signup/SignupForm.tsx
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { API_ENDPOINT } from '../../config/constants';
+import { VITE_API_ENDPOINT } from '../../config/constants';
 
 const SignupForm: React.FC = () => {
   const [organisationName, setOrganisationName] = useState('');
@@ -14,7 +14,7 @@ const SignupForm: React.FC = () => {
     event.preventDefault();
 
     try {
-      const response = await fetch(`${API_ENDPOINT}/organisations`, {
+      const response = await fetch(`${VITE_API_ENDPOINT}/organisations`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ name: organisationName, user_name: userName, email: userEmail, password: userPassword}),

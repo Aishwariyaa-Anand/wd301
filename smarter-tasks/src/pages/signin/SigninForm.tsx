@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { API_ENDPOINT } from '../../config/constants';
+import { VITE_API_ENDPOINT } from '../../config/constants';
 
 const SigninForm: React.FC = () => {
   const [email, setEmail] = useState('');
@@ -10,7 +10,7 @@ const SigninForm: React.FC = () => {
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     try {
-      const response = await fetch(`${API_ENDPOINT}/users/sign_in`, {
+      const response = await fetch(`${VITE_API_ENDPOINT}/users/sign_in`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, password }),
