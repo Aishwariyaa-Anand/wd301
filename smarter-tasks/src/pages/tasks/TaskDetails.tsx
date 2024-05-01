@@ -53,7 +53,6 @@ const TaskDetails = () => {
   const {
     register,
     handleSubmit,
-    formState: { errors },
   } = useForm<TaskFormUpdatePayload>({
     defaultValues: {
       title: selectedTask.title,

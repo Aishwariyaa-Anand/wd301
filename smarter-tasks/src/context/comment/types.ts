@@ -8,17 +8,13 @@
       name: string;
     };
   };
-  
-  export type Comments = {
-    [k: string]: CommentDetails;
-  };
-  
+
   export interface CommentPayload {
     description: string;
   }
   
   export interface CommentListState {
-    comments: Comments;
+    comments: CommentDetails[];
     isLoading: boolean;
     isError: boolean;
     errorMessage: string;
@@ -36,7 +32,7 @@
   
   export type CommentActions =
     | { type: CommentListAvailableAction.FETCH_COMMENTS_REQUEST }
-    | { type: CommentListAvailableAction.FETCH_COMMENTS_SUCCESS; payload: Comments }
+    | { type: CommentListAvailableAction.FETCH_COMMENTS_SUCCESS; payload: CommentListState }
     | { type: CommentListAvailableAction.FETCH_COMMENTS_FAILURE; payload: string }
     | { type: CommentListAvailableAction.ADD_COMMENT_REQUEST }
     | { type: CommentListAvailableAction.ADD_COMMENT_SUCCESS; payload: CommentDetails }
