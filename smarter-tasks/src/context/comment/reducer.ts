@@ -1,44 +1,52 @@
-import { CommentListState, CommentActions } from "./types";
+import { Reducer } from "react";
+import { CommentListState, CommentActions, CommentListAvailableAction } from "./types";
 
-export const commentReducer = (
-  state: CommentListState,
-  action: CommentActions
-): CommentListState => {
+export const initialCommentState: CommentListState = {
+  comments: [],
+  isLoading: false,
+  isError: false,
+  errorMessage: "",
+};
+
+export const commentReducer: Reducer<CommentListState, CommentActions> = (
+  state = initialCommentState,
+  action
+) => {
   switch (action.type) {
-    case "FETCH_COMMENTS_REQUEST":
+    case CommentListAvailableAction.FETCH_COMMENTS_REQUEST:
       return {
         ...state,
         isLoading: true,
         isError: false,
         errorMessage: "",
       };
-    case "FETCH_COMMENTS_SUCCESS":
+    case CommentListAvailableAction.FETCH_COMMENTS_SUCCESS:
       return {
         ...state,
         isLoading: false,
         comments: action.payload,
       };
-    case "FETCH_COMMENTS_FAILURE":
+    case CommentListAvailableAction.FETCH_COMMENTS_FAILURE:
       return {
         ...state,
         isLoading: false,
         isError: true,
         errorMessage: action.payload,
       };
-    case "ADD_COMMENT_REQUEST":
+    case CommentListAvailableAction.ADD_COMMENT_REQUEST:
       return {
         ...state,
         isLoading: true,
         isError: false,
         errorMessage: "",
       };
-    case "ADD_COMMENT_SUCCESS":
+    case CommentListAvailableAction.ADD_COMMENT_SUCCESS:
       return {
         ...state,
         isLoading: false,
         comments: [...state.comments, action.payload],
       };
-    case "ADD_COMMENT_FAILURE":
+    case CommentListAvailableAction.ADD_COMMENT_FAILURE:
       return {
         ...state,
         isLoading: false,
