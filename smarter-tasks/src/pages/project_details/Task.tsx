@@ -21,15 +21,16 @@ const Task = forwardRef<
         to={`tasks/${task.id}`}
       >
         <div className="sm:ml-4 sm:flex sm:w-full sm:justify-between">
-          <div>
+        <div>
             <h2 className="text-base font-bold my-1">{task.title}</h2>
             <p className="text-sm text-slate-500">
-              {new Date(task.dueDate).toDateString()}
+                {new Date(task.dueDate).toDateString()}
             </p>
+            <p className="text-sm text-slate-500">Description: {task.description}</p>
             <p className="text-sm text-slate-500">
-              Description: {task.description}
+                Assignee: {task.assignedUserName ?? "-"}
             </p>
-          </div>
+        </div>
           <button
             className="deleteTaskButton cursor-pointer h-4 w-4 rounded-full my-5 mr-5"
             onClick={(event) => {
