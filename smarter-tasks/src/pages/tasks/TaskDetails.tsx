@@ -257,7 +257,7 @@ const TaskDetails = () => {
                         </button>
                     </form>
 
-                    <div className="comment mt-2 space-y-4">
+                    <div className="mt-2 space-y-4">
                         {commentsState.isLoading ? (
                             <p className="text-gray-700">Loading comments...</p>
                         ) : commentsState.isError ? (
