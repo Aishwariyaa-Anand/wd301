@@ -265,8 +265,8 @@ const TaskDetails = () => {
                         ) : (
                             <div className="space-y-4">
                             {commentsState.comments.map((comment) => (
-                                <div key={comment.id} className="p-3 bg-gray-100 rounded-lg shadow-md comment">
-                                <div className="text-gray-600">
+                                <div key={comment.id} className="p-3 bg-gray-100 rounded-lg comment">
+                                <div className="text-gray-800">
                                     {comment.User && (
                                     <>
                                         <p className="m-2">
