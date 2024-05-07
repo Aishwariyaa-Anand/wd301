@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { VITE_API_ENDPOINT } from '../../config/constants';
+import { API_ENDPOINT } from '../../config/constants';
 
 const SigninForm: React.FC = () => {
   const [email, setEmail] = useState('');
@@ -10,7 +10,7 @@ const SigninForm: React.FC = () => {
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     try {
-      const response = await fetch(`${VITE_API_ENDPOINT}/users/sign_in`, {
+      const response = await fetch(`${API_ENDPOINT}/users/sign_in`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, password }),
@@ -51,9 +51,9 @@ const SigninForm: React.FC = () => {
         <input type="password" name="password" id="password" value={password} onChange={(e) => setPassword(e.target.value)} className="w-full border rounded-md py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:border-blue-500 focus:shadow-outline-blue" />
       </div>
       <button type="submit" className="w-full bg-gray-700 hover:bg-gray-800 text-white font-semibold py-2 px-4 rounded-md focus:outline-none focus:shadow-outline-gray mt-4">Sign In</button>
-      <div>
-        <h4>New User?</h4>
-        <button type="button" onClick={handleSignupClick} className="w-full bg-gray-700 hover:bg-gray-800 text-white font-semibold py-2 px-4 rounded-md focus:outline-none focus:shadow-outline-gray mt-2">Sign Up</button>
+      <div className="mt-4 text-center">
+        <p>New User?</p>
+        <button type="button" onClick={handleSignupClick} className="bg-blue-500 hover:bg-gray-800 text-white font-semibold py-2 px-4 rounded-md focus:outline-none focus:shadow-outline-gray mt-2">Sign Up</button>
       </div>
     </form>
   );

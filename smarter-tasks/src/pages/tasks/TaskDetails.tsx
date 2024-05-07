@@ -259,24 +259,24 @@ const TaskDetails = () => {
 
                     <div className="comment mt-2 space-y-4">
                         {commentsState.isLoading ? (
-                            <p>Loading comments...</p>
+                            <p className="text-gray-700">Loading comments...</p>
                         ) : commentsState.isError ? (
-                            <p>Error: {commentsState.errorMessage}</p>
+                            <p className="text-red-600">Error: {commentsState.errorMessage}</p>
                         ) : (
                             <div className="space-y-4">
                             {commentsState.comments.map((comment) => (
-                                <div key={comment.id} className="p-3 bg-gray-100 rounded-lg comment">
+                                <div key={comment.id} className="bg-gray-200 rounded-lg p-4 comment">
                                 <div className="text-gray-800">
                                     {comment.User && (
                                     <>
-                                        <p className="m-2">
+                                        <p className="mb-2">
                                         <strong>Name:</strong> {comment.User.name}
                                         </p>
-                                        <p className="m-2">
+                                        <p className="mb-2">
                                         <strong>Timestamp:</strong>{" "}
                                         {comment.createdAt && comment.createdAt.toLocaleString()}
                                         </p>
-                                        <p className="m-2">
+                                        <p className="mb-2">
                                         <strong>Comment:</strong> {comment.description}
                                         </p>
                                     </>

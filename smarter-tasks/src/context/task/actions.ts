@@ -1,5 +1,5 @@
 // Import required type annotations
-import { VITE_API_ENDPOINT } from "../../config/constants";
+import { API_ENDPOINT } from "../../config/constants";
 import {
   ProjectData,
     TaskDetails,
@@ -18,7 +18,7 @@ export const addTask = async (
     try {
       dispatch({ type: TaskListAvailableAction.CREATE_TASK_REQUEST });
       const response = await fetch(
-        `${VITE_API_ENDPOINT}/projects/${projectID}/tasks/`,
+        `${API_ENDPOINT}/projects/${projectID}/tasks/`,
         {
           method: "POST",
           headers: {
@@ -55,7 +55,7 @@ export const refreshTasks = async (
     try {
       dispatch({ type: TaskListAvailableAction.FETCH_TASKS_REQUEST });
       const response = await fetch(
-        `${VITE_API_ENDPOINT}/projects/${projectID}/tasks`,
+        `${API_ENDPOINT}/projects/${projectID}/tasks`,
         {
           headers: {
             "Content-Type": "application/json",
@@ -93,7 +93,7 @@ export const refreshTasks = async (
     try {
       dispatch({ type: TaskListAvailableAction.DELETE_TASKS_REQUEST });
       const response = await fetch(
-        `${VITE_API_ENDPOINT}/projects/${projectID}/tasks/${task.id}`,
+        `${API_ENDPOINT}/projects/${projectID}/tasks/${task.id}`,
         {
           method: "DELETE",
           headers: {
@@ -128,7 +128,7 @@ export const refreshTasks = async (
       // Display loading status
       dispatch({ type: TaskListAvailableAction.UPDATE_TASK_REQUEST });
       const response = await fetch(
-        `${VITE_API_ENDPOINT}/projects/${projectID}/tasks/${task.id}`,
+        `${API_ENDPOINT}/projects/${projectID}/tasks/${task.id}`,
         {
           method: "PATCH",
           headers: {
