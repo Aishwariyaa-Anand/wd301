@@ -1,5 +1,5 @@
 import { RouterProvider } from "react-router-dom";
-import { useContext } from "react";
+import { Suspense, useContext } from "react";
 import { ThemeContext } from "./context/theme";
 import router from "./routes"
 import { ProjectsProvider } from "./context/projects/context";
@@ -13,7 +13,9 @@ const App = () => {
       <CommentProvider>
       <ProjectsProvider>
         <MembersProvider>
-          <RouterProvider router={router} />
+          <Suspense fallback={<>Loading...</>}>
+            <RouterProvider router={router} />
+          </Suspense>
         </MembersProvider>
       </ProjectsProvider>
       </CommentProvider>

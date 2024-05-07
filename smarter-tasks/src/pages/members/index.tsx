@@ -1,5 +1,7 @@
 import MemberList from "./MemberList";
 import NewMember from "./NewMember";
+import { Suspense } from "react";
+import ErrorBoundary from "../../components/ErrorBoundary";
 
 const Members = () => {
     return (
@@ -8,9 +10,13 @@ const Members = () => {
           <h2 className="text-2xl font-medium tracking-tight">Members</h2>
           <NewMember />
         </div>
-        <MemberList />
+        <ErrorBoundary>
+        <Suspense fallback={<div>Loading Member List...</div>}>
+          <MemberList />
+        </Suspense>
+        </ErrorBoundary>
       </>
-    )
+    ) 
 }
 
 export default Members;
