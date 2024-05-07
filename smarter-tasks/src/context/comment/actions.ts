@@ -75,7 +75,7 @@ export const fetchComment = async (
 
     let data = await response.json();
 
-    data.sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
+    data.sort((a: any, b: any) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
     
     dispatch({
       type: CommentListAvailableAction.FETCH_COMMENTS_SUCCESS,
