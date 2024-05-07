@@ -263,30 +263,27 @@ const TaskDetails = () => {
                         ) : commentsState.isError ? (
                             <p className="text-red-600">Error: {commentsState.errorMessage}</p>
                         ) : (
-                            <div className="space-y-4">
-                            {commentsState.comments.map((comment) => (
-                                <div key={comment.id} className="bg-gray-200 rounded-lg p-4 comment">
-                                <div className="text-gray-800">
-                                    {comment.User && (
-                                    <>
-                                        <p className="mb-2">
-                                        <strong>Name:</strong> {comment.User.name}
-                                        </p>
-                                        <p className="mb-2">
-                                        <strong>Timestamp:</strong>{" "}
-                                        {comment.createdAt && comment.createdAt.toLocaleString()}
-                                        </p>
-                                        <p className="mb-2">
-                                        <strong>Comment:</strong> {comment.description}
-                                        </p>
-                                    </>
-                                    )}
-                                </div>
-                                </div>
-                            ))}
-                            </div>
+                            <table className="min-w-full divide-y divide-gray-200">
+                                <thead className="bg-gray-50">
+                                    <tr>
+                                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Name</th>
+                                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Timestamp</th>
+                                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Comment</th>
+                                    </tr>
+                                </thead>
+                                <tbody className="bg-white divide-y divide-gray-200">
+                                    {commentsState.comments.map((comment) => (
+                                        <tr key={comment.id} className="comment">
+                                            <td className="px-6 py-4 whitespace-nowrap">{comment.User && comment.User.name}</td>
+                                            <td className="px-6 py-4 whitespace-nowrap">{new Date(comment.createdAt).toLocaleString()}</td>
+                                            <td className="px-6 py-4 whitespace-nowrap">{comment.description}</td>
+                                        </tr>
+                                    ))}
+                                </tbody>
+                            </table>
                         )}
                     </div>
+
 
                   </div>
                 </Dialog.Panel>
