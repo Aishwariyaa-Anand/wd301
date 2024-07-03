@@ -23,7 +23,7 @@ The application integrates with an API service at wd301-api.pupilfirst.school. T
 1. Project Management
 ![image](https://github.com/Aishwariyaa-Anand/wd301/assets/124241367/f225d0de-5828-47db-b167-9985b0da570e)
 2. Task Management
-![image](https://github.com/Aishwariyaa-Anand/wd301/assets/124241367/f9ccf413-2246-466a-9c76-8785156da332)
+![image](https://github.com/Aishwariyaa-Anand/wd301/assets/124241367/4e8d3149-8617-4aa7-9b3a-880c6c30375a)
 3. User Management
 ![image](https://github.com/Aishwariyaa-Anand/wd301/assets/124241367/2b8054f6-70b3-4895-b641-26e214445350)
 
